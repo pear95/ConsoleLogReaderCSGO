@@ -14,8 +14,5 @@ namespace ConsoleLogReaderCSGO.Base
             Index = id;
             LogTypeFlag = logFlags;
         }
-
-        //Steamworks Stats: CSteamWorksGameStatsClient Received CLIENT session id: start
-        //Steamworks Stats: CSteamWorksGameStatsClient Ending CLIENT session id: close
     }
 }
