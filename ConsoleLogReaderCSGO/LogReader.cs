@@ -15,7 +15,7 @@ namespace ConsoleLogReaderCSGO
     public class LogReader<T>
     {
         #region fields
-        internal static IEnumerable<string> Value{ get; set; }
+        internal static IEnumerable<string> ValueS{ get; set; }
         internal static int LastLogIndex { get; set; }
 
         #endregion
