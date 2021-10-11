@@ -46,8 +46,8 @@ namespace ConsoleLogReaderCSGO.Data
 
         public static (string[], LogFlags)[] Coincidence { get; private set; } =
         {
-            (LogChat, LogFlags.Chat), //nameof(LogChat)
-            (LogDamage, LogFlags.Damage), //nameof(LogDamage)
+            (LogChat, LogFlags.Chat),
+            (LogDamage, LogFlags.Damage),
             (LogMatchInfo, LogFlags.MatchInfo),
             (LogDebug, LogFlags.Debug),
         };
