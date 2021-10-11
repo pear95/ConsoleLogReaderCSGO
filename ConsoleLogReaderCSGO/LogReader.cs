@@ -15,7 +15,7 @@ namespace ConsoleLogReaderCSGO
     public class LogReader<T>
     {
         #region fields
-        internal static IEnumerable<string> Value{ get; set; }
+        internal static IEnumerable<string> ValueR{ get; set; }
         internal static int LastLogIndex { get; set; }
 
         #endregion
@@ -32,9 +32,9 @@ namespace ConsoleLogReaderCSGO
         {
             Data.Variables.ConsoleLinesArray = new LogSorted[0];
 
-            Value = CheckTypeT(logs);
+            ValueR = CheckTypeT(logs);
 
-            var response = Operations.ReadConsoleLogFile.ReadConsoleFile(Value);
+            var response = Operations.ReadConsoleLogFile.ReadConsoleFile(ValueR);
             Data.Variables.ConsoleLinesArray = response.Item1;
             LastLogIndex = response.Item2;
         }
@@ -75,11 +75,11 @@ namespace ConsoleLogReaderCSGO
         /// <param name="newLog">New log of type set at create instance</param>
         public void UpdateLogExtendedFile(T newLog) // stare logi.txt zastępuje nowymi logami
         {
-            Value = CheckTypeT(newLog);
+            ValueR = CheckTypeT(newLog);
 
-            if(Value != null)
+            if(ValueR != null)
             {
-                var response = Operations.UpdateConsolLogFile.UpdateLogExtendedFIle(Value, LastLogIndex);
+                var response = Operations.UpdateConsolLogFile.UpdateLogExtendedFIle(ValueR, LastLogIndex);
                 Data.Variables.ConsoleLinesArray = (LogSorted[])Data.Variables.ConsoleLinesArray.Concat(response.Item1).ToArray();
                 LastLogIndex = response.Item2;
             }
@@ -91,11 +91,11 @@ namespace ConsoleLogReaderCSGO
         /// <param name="newLog">New log of type set at create instance</param>
         public void UpdateLogNewFile(T newLog) // stare logi txt + nowe logi
         {
-            Value = CheckTypeT(newLog);
+            ValueR = CheckTypeT(newLog);
 
-            if(Value != null)
+            if(ValueR != null)
             {
-                var response = Operations.UpdateConsolLogFile.UpdateLogNewFile(Value, LastLogIndex);
+                var response = Operations.UpdateConsolLogFile.UpdateLogNewFile(ValueR, LastLogIndex);
                 Data.Variables.ConsoleLinesArray = (LogSorted[])Data.Variables.ConsoleLinesArray.Concat(response.Item1).ToArray();
                 LastLogIndex = response.Item2;
             }
@@ -107,7 +107,7 @@ namespace ConsoleLogReaderCSGO
         public void ClearLog()
         {
             Data.Variables.ConsoleLinesArray = default(LogSorted[]);
-            Value = default(IEnumerable<string>);
+            ValueR = default(IEnumerable<string>);
         }
 
         #endregion
