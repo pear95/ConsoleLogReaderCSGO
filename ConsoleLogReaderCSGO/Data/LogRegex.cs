@@ -18,7 +18,7 @@ namespace ConsoleLogReaderCSGO.Data
         {
             (LogChat, LogFlags.Chat), 
             (LogDamage, LogFlags.Damage), 
-            (LogMatchInfo, LogFlags.MatchInfo), 
+            (LogMatchInfo, LogFlags.MatchInfo),
         };
     }
 }
