@@ -4,14 +4,16 @@ using System.Text;
 
 namespace ConsoleLogReaderCSGO.Base
 {
-    internal class LogSorted : ConsoleLine
+    internal class LogSorted
     {
-        internal int Index { get; set; }
-        internal LogFlags LogTypeFlag { get; set; }
+        public string Line { get; set; }
+        public int Index { get; set; }
+        public LogFlags LogTypeFlag { get; set; }
 
-        public LogSorted(string line, LogFlags logFlags, int id) : base(line)
+        public LogSorted(string line, LogFlags logFlags, int startIndex)
         {
-            Index = id;
+            Line = line;
+            Index = startIndex;
             LogTypeFlag = logFlags;
         }
     }

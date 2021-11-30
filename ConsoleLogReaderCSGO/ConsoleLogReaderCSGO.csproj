@@ -3,6 +3,21 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <Authors>pear95</Authors>
+    <PackageId>pear95.Util.ConsoleLogReaderCSGO</PackageId>
+    <Description>A .NET Core library to analyse CS:GO console logs.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/pear95/ConsoleLogReaderCSGO</RepositoryUrl>
+    <PackageTags>console log reader csgo flag</PackageTags>
+    <PackageIcon>template.png</PackageIcon>
+    <PackageIconUrl />
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="E:\download\template.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
