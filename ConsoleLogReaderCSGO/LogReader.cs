@@ -74,32 +74,18 @@ namespace ConsoleLogReaderCSGO
         /// Method that updates log file replacing previous log with new file (biggest).
         /// </summary>
         /// <param name="newLog">New log of type set at create instance</param>
-        public void UpdateLogExtendedFile(T newLog) // stare logi.txt zastępuje nowymi logami
+        public void UpdateLogExtendedFile(T newLog) // oldlogs.txt replaced by newlogs.txt
         {
-            Value = CheckTypeT(newLog);
-
-            if(Value != null)
-            {
-                var response = Operations.UpdateConsolLogFile.UpdateLogExtendedFIle(Value, LastLogIndex);
-                Data.Variables.ConsoleLinesArray = (LogSorted[])Data.Variables.ConsoleLinesArray.Concat(response.Item1).ToArray();
-                LastLogIndex = response.Item2;
-            }
+            UpdateLog(newLog, true);
         }
 
         /// <summary>
         /// Method that update log file appending new logs to previous file.
         /// </summary>
         /// <param name="newLog">New log of type set at create instance</param>
-        public void UpdateLogNewFile(T newLog) // stare logi txt + nowe logi
+        public void UpdateLogNewFile(T newLog) // old.txt + newlogs.txt
         {
-            Value = CheckTypeT(newLog);
-
-            if(Value != null)
-            {
-                var response = Operations.UpdateConsolLogFile.UpdateLogNewFile(Value, LastLogIndex);
-                Data.Variables.ConsoleLinesArray = (LogSorted[])Data.Variables.ConsoleLinesArray.Concat(response.Item1).ToArray();
-                LastLogIndex = response.Item2;
-            }
+            UpdateLog(newLog, false);
         }
 
         /// <summary>
@@ -120,6 +106,21 @@ namespace ConsoleLogReaderCSGO
                 : logs is string ? logs.ToString().Split(new char[] { '\r', '\n' }).Where(y => !string.IsNullOrEmpty(y)).ToArray()
                 : default(IEnumerable<string>);
         }
+
+        private void UpdateLog(T logs, bool isExtendedFile)
+        {
+            Value = CheckTypeT(logs);
+
+            if (Value != null)
+            {
+                (LogSorted[], int) response = isExtendedFile ? Operations.UpdateConsolLogFile.UpdateLogExtendedFIle(Value, LastLogIndex)
+                    : Operations.UpdateConsolLogFile.UpdateLogNewFile(Value, LastLogIndex);
+                
+                Data.Variables.ConsoleLines.AddRange(response.Item1);
+                LastLogIndex = response.Item2;
+            }
+        }
+
         #endregion
     }
 }
