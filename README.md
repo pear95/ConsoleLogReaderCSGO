@@ -4,7 +4,7 @@ A .NET Core library to analyse CS:GO console logs.
 ## Installation
 
 
-Use the package manager [NuGet](https://www.nuget.org/) to install. Temporarily unavailable.
+Use the package manager [NuGet](https://www.nuget.org/packages/pear95.Util.ConsoleLogReaderCSGO/1.0.1) to install. Temporarily unavailable.
 
 ## Usage
 
