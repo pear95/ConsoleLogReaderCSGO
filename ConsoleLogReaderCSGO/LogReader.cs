@@ -112,8 +112,8 @@ namespace ConsoleLogReaderCSGO
 
             if (Value != null)
             {
-                (List<LogSorted>, int) response = isExtendedFile ? Operations.UpdateConsolLogFile.UpdateLogExtendedFIle(Value, LastLogIndex)
-                    : Operations.UpdateConsolLogFile.UpdateLogNewFile(Value, LastLogIndex);
+                (List<LogSorted>, int) response = isExtendedFile ? Operations.UpdateConsoleLogFile.UpdateLogExtendedFIle(Value, LastLogIndex)
+                    : Operations.UpdateConsoleLogFile.UpdateLogNewFile(Value, LastLogIndex);
                 
                 Data.Variables.ConsoleLines.AddRange(response.Item1);
                 LastLogIndex = response.Item2;
