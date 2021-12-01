@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using ConsoleLogReaderCSGO.Base;
 
-namespace ConsoleLogReaderCSGO.Operations
+namespace ConsoleLogReaderCSGO.Operations.Flag
 {
     internal static class SetFlagToLogLine
     {

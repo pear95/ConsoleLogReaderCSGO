@@ -3,10 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using ConsoleLogReaderCSGO.Operations.Flag;
 
 namespace ConsoleLogReaderCSGO.Operations
 {
-    internal static class UpdateConsolLogFile
+    internal static class UpdateConsoleLogFile
     {
         #region Update methods
         /// <summary>

@@ -21,4 +21,9 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Operations\Chat\" />
+    <Folder Include="Operations\Damage\" />
+  </ItemGroup>
+
 </Project>
