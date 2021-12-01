@@ -93,16 +93,15 @@ namespace ConsoleLogReaderCSGO
         /// </summary>
         public void ClearLog()
         {
-            Data.Variables.ConsoleLinesArray = default(LogSorted[]);
-            Value = default(IEnumerable<string>);
+            Data.Variables.ConsoleLines = default;
+            Value = default;
         }
-
         #endregion
 
         #region Methods private
         private IEnumerable<string> CheckTypeT(T logs)
         {
-            return logs is IEnumerable<string> ? (IEnumerable<string>)logs
+            return logs is IEnumerable<string> enumerable ? enumerable
                 : logs is string ? logs.ToString().Split(new char[] { '\r', '\n' }).Where(y => !string.IsNullOrEmpty(y)).ToArray()
                 : default(IEnumerable<string>);
         }
@@ -113,7 +112,7 @@ namespace ConsoleLogReaderCSGO
 
             if (Value != null)
             {
-                (LogSorted[], int) response = isExtendedFile ? Operations.UpdateConsolLogFile.UpdateLogExtendedFIle(Value, LastLogIndex)
+                (List<LogSorted>, int) response = isExtendedFile ? Operations.UpdateConsolLogFile.UpdateLogExtendedFIle(Value, LastLogIndex)
                     : Operations.UpdateConsolLogFile.UpdateLogNewFile(Value, LastLogIndex);
                 
                 Data.Variables.ConsoleLines.AddRange(response.Item1);
