@@ -17,10 +17,10 @@ namespace ConsoleLogReaderCSGO.Operations
         /// <param name="logs"></param>
         /// <param name="startIndex"></param>
         /// <returns></returns>
-        internal static (LogSorted[], int) UpdateLogExtendedFIle(IEnumerable<string> logs, int startIndex)
+        internal static (List<LogSorted>, int) UpdateLogExtendedFIle(IEnumerable<string> logs, int startIndex)
         {
             int counter = startIndex;
-            return ((LogSorted[])logs.Where(y => Array.IndexOf(logs.ToArray(), y) >= startIndex).Select(y => new LogSorted(y, SetFlagToLogLine.DetermineFlag(y), counter++)).ToArray(), logs.ToArray().Length);
+            return (logs.Select((Value, Index) => new { Value, Index }).Where(x => x.Index >= startIndex).Select(x => new LogSorted(x.Value, SetFlagToLogLine.DetermineFlag(x.Value), counter++)).ToList(), logs.Count());
         }
 
         /// <summary>
@@ -31,10 +31,9 @@ namespace ConsoleLogReaderCSGO.Operations
         /// <param name="logs"></param>
         /// <param name="startIndex"></param>
         /// <returns></returns>
-        internal static (LogSorted[], int) UpdateLogNewFile(IEnumerable<string> logs, int startIndex)
+        internal static (List<LogSorted>, int) UpdateLogNewFile(IEnumerable<string> logs, int startIndex)
         {
-            int counter = startIndex;
-            return ((LogSorted[])logs.Select(x => new LogSorted(x, SetFlagToLogLine.DetermineFlag(x), counter++)).ToArray(), logs.ToArray().Length);
+            return (logs.Select(x => new LogSorted(x, SetFlagToLogLine.DetermineFlag(x), startIndex++)).ToList(), logs.Count());
         }
 
         #endregion
