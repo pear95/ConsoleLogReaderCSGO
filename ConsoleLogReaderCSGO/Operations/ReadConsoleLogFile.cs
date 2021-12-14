@@ -19,7 +19,7 @@ namespace ConsoleLogReaderCSGO.Operations
             int counter = 0;
             if (logs != null)
             {
-                return ((LogSorted[])logs.Select(x => new LogSorted(x, SetFlagToLogLine.DetermineFlag(x), counter++)).ToArray(), logs.ToArray().Length);
+                return ((LogSorted[])logs.Select(x => new LogSorted(x, Flag.SetFlagToLogLine.DetermineFlag(x), counter++)).ToArray(), logs.ToArray().Length);
             }
             return (null, 0);
             
