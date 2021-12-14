@@ -102,8 +102,8 @@ namespace ConsoleLogReaderCSGO
         private IEnumerable<string> CheckTypeT(T logs)
         {
             return logs is IEnumerable<string> enumerable ? enumerable
-                : logs is string ? logs.ToString().Split(new char[] { '\r', '\n' }).Where(y => !string.IsNullOrEmpty(y)).ToArray()
-                : default(IEnumerable<string>);
+                : logs is string ? logs.ToString().Split(new char[] { '\r', '\n' }).Where(y => !string.IsNullOrEmpty(y))
+                : default;
         }
 
         private void UpdateLog(T logs, bool isExtendedFile)
@@ -112,7 +112,7 @@ namespace ConsoleLogReaderCSGO
 
             if (Value != null)
             {
-                (List<LogSorted>, int) response = isExtendedFile ? Operations.UpdateConsoleLogFile.UpdateLogExtendedFIle(Value, LastLogIndex)
+                (IEnumerable<LogSorted>, int) response = isExtendedFile ? Operations.UpdateConsoleLogFile.UpdateLogExtendedFile(Value, LastLogIndex)
                     : Operations.UpdateConsoleLogFile.UpdateLogNewFile(Value, LastLogIndex);
                 
                 Data.Variables.ConsoleLines.AddRange(response.Item1);
