@@ -29,6 +29,9 @@ class Test
         reader2.UpdateLogExtendedFile(myNewLogs);
         //or
         reader2.UpdateLogNewFile(myNewLogs);
+        
+        //Get List of objects of Chat Message
+        var myChats = reader2.GetChat(false);
     }
 }
 ```
