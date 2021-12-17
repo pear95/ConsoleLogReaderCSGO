@@ -4,6 +4,9 @@ using System.Text;
 
 namespace ConsoleLogReaderCSGO
 {
+
+    #region Enumerator Log Flag
+
     /// <summary>
     /// Enumerator of Log Flags
     /// </summary>
@@ -30,4 +33,31 @@ namespace ConsoleLogReaderCSGO
         /// </summary>
         All = 20,
     }
+
+    #endregion
+
+    #region Enumerator Chat Type
+
+    /// <summary>
+    /// Enumerator for Type of console chat
+    /// </summary>
+    public enum ChatType
+    {
+        /// <summary>
+        /// Counter Terrorist chat, only readable for counter terrorist team
+        /// </summary>
+        CT = 1,
+        /// <summary>
+        /// Terrorist chat, only readable for terrorist team
+        /// </summary>
+        TT = 2,
+        /// <summary>
+        /// Global chat, readable for everyone
+        /// </summary>
+        GLOBAL = 3,
+    }
+
+    #endregion
+
+
 }

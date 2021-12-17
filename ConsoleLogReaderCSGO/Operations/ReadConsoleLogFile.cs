@@ -22,7 +22,7 @@ namespace ConsoleLogReaderCSGO.Operations
                 return ((LogSorted[])logs.Select(x => new LogSorted(x, Flag.SetFlagToLogLine.DetermineFlag(x), counter++)).ToArray(), logs.ToArray().Length);
             }
             return (null, 0);
-            
+
         }
         #endregion
     }

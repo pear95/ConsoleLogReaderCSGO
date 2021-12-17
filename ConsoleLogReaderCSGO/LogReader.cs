@@ -89,6 +89,35 @@ namespace ConsoleLogReaderCSGO
         }
 
         /// <summary>
+        /// <br>Method returns a List that contains chats in provided logs. </br>
+        /// <br>Depend on provided parameter bool it return all chat logs or only chat logs that was not given from last time method executed.</br>
+        /// <para>returns List of MessageConsole</para>
+        /// </summary>
+        /// <param name="getAllChat">
+        /// <br>A boolean if <b>true</b> returns all chat message from log file.</br>
+        /// <br>A boolean if <b>false</b> returns only chat message from log file that was not given from last time method executed.</br>
+        /// </param>
+        /// <returns>
+        /// <para>Object List where every object cointains:</para>
+        /// <br>1) (int) <b>ID</b>- index of line in console logs</br>  
+        /// <br>2) (string) <b>User</b> - username of message </br>
+        /// <br>3) (string) <b>Text</b> - a message </br>
+        /// <br>4) (bool) <b>IsDead</b> - if username when wrote message was dead </br>
+        /// <br>5) (ChatTypr) <b>MessageType</b> - enumerator that indicates if message is global, counter-terrorist team or terrorist team</br>
+        /// <br>6) (string) <b>Location</b> - if message was on team chat, showing map spot where message was wroten </br>
+        /// </returns>
+        public List<object> GetChat(bool getAllChat)
+        {
+            var result = getAllChat ? Operations.Chat.GetChat.GetChats(Data.Variables.ConsoleLines)
+                : Operations.Chat.GetChat.GetChats(Data.Variables.ConsoleLines, Data.Variables.LastIndexChat);
+            if (result != null)
+            {
+                return result.Cast<object>().ToList();
+            }
+            return new List<object> { };
+        }
+
+        /// <summary>
         /// Method that remove all logs from instance.
         /// </summary>
         public void ClearLog()
