@@ -20,7 +20,7 @@ namespace ConsoleLogReaderCSGO.Operations.Flag
             //Every Logflag has Regular Expression pattern and Exceptions list.
             
             //Iterate patterns of RegularExpression looking for a match with 'line'.
-            foreach (var patternRegex in Data.LogRegex.regexLog)
+            foreach (var patternRegex in Data.LogRegex.RegexLog)
             {
                 if (patternRegex.Item1.IsMatch(line))
                 {
