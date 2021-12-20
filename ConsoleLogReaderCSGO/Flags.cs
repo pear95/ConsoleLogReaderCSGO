@@ -59,5 +59,18 @@ namespace ConsoleLogReaderCSGO
 
     #endregion
 
+    #region Enumerator Match status
+
+    public enum MatchStatus
+    {
+        Start = 1,
+        End = 2,
+        Disconnect = 3,
+        LoadingScreen = 4,
+        PngReadMessage = 5,
+    }
+
+    #endregion
+
 
 }

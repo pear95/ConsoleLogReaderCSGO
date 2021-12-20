@@ -8,7 +8,6 @@ namespace ConsoleLogReaderCSGO.Data
 {
     internal static class LogRegex
     {
-
         public static Regex LogChat = new Regex($@"({Variables.MessageUserTextSeparator})");
 
         public static Regex LogDamage = new Regex($@"^(({Variables.MessageDmg1})|({Variables.MessageDmg2})|({Variables.MessageDmg3})|({Variables.MessageDmg4})|({Variables.MessageDmg5}))");
@@ -21,5 +20,11 @@ namespace ConsoleLogReaderCSGO.Data
             (LogDamage, LogFlags.Damage), 
             (LogMatchInfo, LogFlags.MatchInfo),
         };
+
+        public static Regex MatchStart { get; private set; } = new Regex($@"^({Variables.MessageStartGame})(.*)");
+        public static Regex MatchEnd { get; private set; } = new Regex($@"^({Variables.MessageEndGame})(.*)");
+        public static Regex MatchDisconnect { get; private set; } = new Regex($@"^({Variables.MessageDisconnectFromGame})");
+        public static Regex MatchLoadingScreen { get; private set; } = new Regex($@"^({Variables.MessageGameStartConfirm})");
+        public static Regex MatchPngReadMessage { get; private set; } = new Regex($@"^({Variables.MessageGameEndConfirmPNG})");
     }
 }
