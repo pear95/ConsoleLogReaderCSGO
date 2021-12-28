@@ -70,6 +70,13 @@ namespace ConsoleLogReaderCSGO
         PngReadMessage = 5,
     }
 
+    public enum DamageFlag
+    {
+        Taken = 1,
+        Given = 2,
+        NoOne = 3,
+    }
+
     #endregion
 
 

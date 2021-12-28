@@ -118,6 +118,22 @@ namespace ConsoleLogReaderCSGO
         }
 
         /// <summary>
+        /// Method returns a Array that contain all damage from actual match.
+        /// </summary>
+        /// <returns>
+        /// <para>Object Array where every object contains:</para>
+        /// <br>1) (int) ID of segment</br>
+        /// <br>2) (Damage Array) a array of object Damage Taken</br>
+        /// <br>3) (Damage Array) a array of object Damage Given</br>
+        /// </returns>
+        public object[] GetDamageSegmentOfCurrentMatch()
+        {
+            var damage = Operations.Damage.GetDamageSegment.GetActualGameAllDamageSegment(Data.Variables.ConsoleLines);
+            if(damage != null) { return damage.ToArray(); }
+            return new object[] { };
+        }
+
+        /// <summary>
         /// Method that remove all logs from instance.
         /// </summary>
         public void ClearLog()

@@ -36,9 +36,11 @@ namespace ConsoleLogReaderCSGO.Data
         public const string MessageUserTextSeparator = " : ";
         public const string MessageMapSpotSeparator = " @ ";
         public const string MessageIDSeperator = "id:";
+        public const string MessageDamageUserMinusSeparator = "\" - ";
+        public const string MessageDamageUserInSeparator = " in ";
 
         public const string MessageDamageTaken = "Damage Taken from";
-        public const string MessageDamageGiven = "Damage Given to ";
+        public const string MessageDamageGiven = "Damage Given to";
 
         public const string MessageDmg1 = "Damage Given to";
         public const string MessageDmg2 = "Damage Taken from";
