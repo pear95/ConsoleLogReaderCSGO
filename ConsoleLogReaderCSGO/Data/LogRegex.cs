@@ -26,5 +26,6 @@ namespace ConsoleLogReaderCSGO.Data
         public static Regex MatchDisconnect { get; private set; } = new Regex($@"^({Variables.MessageDisconnectFromGame})");
         public static Regex MatchLoadingScreen { get; private set; } = new Regex($@"^({Variables.MessageGameStartConfirm})");
         public static Regex MatchPngReadMessage { get; private set; } = new Regex($@"^({Variables.MessageGameEndConfirmPNG})");
+        public static Regex StartSegmentDamage { get; private set; } = new Regex(@"^(Player: (.*)- Damage Given)");
     }
 }

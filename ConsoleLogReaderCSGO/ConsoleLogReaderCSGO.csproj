@@ -11,9 +11,23 @@
     <PackageIcon>template.png</PackageIcon>
     <PackageIconUrl />
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.0.1</Version>
-    <PackageReleaseNotes>1.1.0.1 Update: Added GetChat method and readme.md</PackageReleaseNotes>
+    <Version>1.2.0</Version>
+    <PackageReleaseNotes>1.2.0 
+Update: 
+ • Added internal method to calculate match start/end basic information.
+1.1.0.1 
+Update: 
+ • Added readme.md
+1.1.0 
+Update: 
+ • Added GetChat method
+1.0.1
+Update: 
+ • Little performance of UpdateLog methods.
+1.0.0 
+ • Base program.</PackageReleaseNotes>
 	<PackageReadmeFile>readme.md</PackageReadmeFile>
+	<PackageProjectUrl>https://github.com/pear95/ConsoleLogReaderCSGO</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,10 +36,6 @@
       <PackagePath></PackagePath>
     </None>
 	<None Include="docs\readme.md" Pack="true" PackagePath="\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Operations\Damage\" />
   </ItemGroup>
 
 </Project>
