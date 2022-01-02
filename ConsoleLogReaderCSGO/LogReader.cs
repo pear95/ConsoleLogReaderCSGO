@@ -36,7 +36,7 @@ namespace ConsoleLogReaderCSGO
             Value = CheckTypeT(logs);
 
             var response = Operations.ReadConsoleLogFile.ReadConsoleFile(Value);
-            Data.Variables.ConsoleLinesArray = response.Item1;
+            Data.Variables.ConsoleLines = response.Item1;
             LastLogIndex = response.Item2;
         }
 
@@ -64,8 +64,8 @@ namespace ConsoleLogReaderCSGO
                     : new LogFlags[] { logFlag };
 
                 return !logFlagAll.Contains(LogFlags.All) 
-                    ? (object[])Data.Variables.ConsoleLinesArray.Where(x => logFlagAll.Contains(x.LogTypeFlag)).ToArray()
-                    : (object[])Data.Variables.ConsoleLinesArray.ToArray();
+                    ? (object[])Data.Variables.ConsoleLines.Where(x => logFlagAll.Contains(x.LogTypeFlag)).ToArray()
+                    : (object[])Data.Variables.ConsoleLines.ToArray();
             }
             else { return new object[] { }; }
         }
@@ -106,15 +106,16 @@ namespace ConsoleLogReaderCSGO
         /// <br>5) (ChatTypr) <b>MessageType</b> - enumerator that indicates if message is global, counter-terrorist team or terrorist team</br>
         /// <br>6) (string) <b>Location</b> - if message was on team chat, showing map spot where message was wroten </br>
         /// </returns>
-        public List<object> GetChat(bool getAllChat)
+        public List<MessageConsole> GetChat(bool getAllChat)
         {
             var result = getAllChat ? Operations.Chat.GetChat.GetChats(Data.Variables.ConsoleLines)
                 : Operations.Chat.GetChat.GetChats(Data.Variables.ConsoleLines, Data.Variables.LastIndexChat);
             if (result != null)
             {
-                return result.Cast<object>().ToList();
+                return result;
+                //.Cast<object>().ToList();
             }
-            return new List<object> { };
+            return new List<MessageConsole> { };
         }
 
         /// <summary>

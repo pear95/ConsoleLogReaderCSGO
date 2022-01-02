@@ -45,7 +45,7 @@ namespace ConsoleLogReaderCSGO.Operations.Damage
             {
                 if (CheckIfDamageSectionHasValues(_damageSection))
                 {
-                    AddSectionToSectionGroup(_extractedDamage, _damageSection);
+                    AddSectionToSectionGroup(_extractedDamage, ref _damageSection);
                 }
             }
             _damageSection.Add(log.Line);
@@ -75,7 +75,7 @@ namespace ConsoleLogReaderCSGO.Operations.Damage
         /// </summary>
         /// <param name="groupSection"></param>
         /// <param name="section"></param>
-        private static void AddSectionToSectionGroup(List<List<string>> groupSection, List<string> section)
+        private static void AddSectionToSectionGroup(List<List<string>> groupSection, ref List<string> section)
         {
             if (groupSection.Count > 0)
             {
@@ -93,8 +93,6 @@ namespace ConsoleLogReaderCSGO.Operations.Damage
 #pragma warning restore IDE0059 // Unnecessary assignment of a value
 
         }
-
         #endregion
-
     }
 }

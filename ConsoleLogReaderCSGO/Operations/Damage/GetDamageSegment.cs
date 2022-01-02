@@ -23,7 +23,7 @@ namespace ConsoleLogReaderCSGO.Operations.Damage
         {
             var matchesStartEndInfo = Match.GetStartEndMatchInfo.GetMatches(logs);
 
-            if (_matches.Equals(null)) { _matches = matchesStartEndInfo; }
+            if (_matches == null) { _matches = matchesStartEndInfo; }
             else { _matches.AddRange(matchesStartEndInfo); }
 
             var matchInProgress = Match.IsMatchInProgress.Check(_matches);
@@ -49,7 +49,7 @@ namespace ConsoleLogReaderCSGO.Operations.Damage
                 }
                 else
                 {
-                    var damageExtracted = ExtractDamage.ExtractCurrentMatchDamageFromLogFile(logs, 1);
+                    var damageExtracted = ExtractDamage.ExtractCurrentMatchDamageFromLogFile(logs, matchInfo.Item2); //_startMatchLastIndex
                     return CreateDamageSegment.CreateDamageSegments(damageExtracted).ToArray();
                 }
             }
