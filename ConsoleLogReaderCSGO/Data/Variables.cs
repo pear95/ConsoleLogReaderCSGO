@@ -33,6 +33,9 @@ namespace ConsoleLogReaderCSGO.Data
         public const string MessageTT = "(Terrorist) ";
         public const string MessageCT = "(Counter-Terrorist) ";
         public const string MessageDead = "*DEAD*";
+        public const string MessageTTRegex = @"\(Terrorist\) ";
+        public const string MessageCTRegex = @"\(Counter-Terrorist\) ";
+        public const string MessageDeadRegex = @"\*DEAD\*";
         public const string MessageUserTextSeparator = " : ";
         public const string MessageMapSpotSeparator = " @ ";
         public const string MessageIDSeperator = "id:";

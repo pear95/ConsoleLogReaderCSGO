@@ -10,8 +10,7 @@ namespace ConsoleLogReaderCSGO.Operations.Damage
     {
         #region Field
 
-        private static List<Base.Damage> _taken;
-        private static List<Base.Damage> _given;
+        private static List<Base.Damage> _taken, _given;
         private static List<Base.DamageSegment> _segments;
 
         #endregion
@@ -56,7 +55,18 @@ namespace ConsoleLogReaderCSGO.Operations.Damage
         private static void CheckLineForDamageType(string line)
         {
             var factory = DamageFactory.CreateDamageType(line);
-            if(factory != null) { factory.AddDamageObjectToColection(line); }
+            if(factory != null)
+            {
+                switch (factory)
+                {
+                    case DamageTaken _:
+                        _taken.Add(factory.AddDamageObjectToColection(line));
+                        break;
+                    case DamageGiven _:
+                        _given.Add(factory.AddDamageObjectToColection(line));
+                        break;
+                }
+            }
         }
         #endregion
     }

@@ -29,6 +29,8 @@ namespace ConsoleLogReaderCSGO.Data
             "    reason Kicked",
             "quarry/qr_",
             "Loaded : ",
+            "Error: Material \"fjall/nature/foam_blend\" : ",
+            "Error: Material \"models/props_fjall/waterfall_02\" : ",
         };
 
         public static string[] LogDamage { get; private set; } =

@@ -12,8 +12,8 @@ namespace ConsoleLogReaderCSGO.Data
 
         public static Regex LogDamage = new Regex($@"^(({Variables.MessageDmg1})|({Variables.MessageDmg2})|({Variables.MessageDmg3})|({Variables.MessageDmg4})|({Variables.MessageDmg5}))");
 
-        public static Regex LogMatchInfo = new Regex($@"^(({Variables.MessageStartGame})|({Variables.MessageEndGame}))");
-        public static Regex LogChatTeam { get; private set; } = new Regex($@" ?({Variables.MessageDead}|)(({Variables.MessageCT}|{Variables.MessageTT})(.*))");
+        public static Regex LogMatchInfo = new Regex($@"^(({Variables.MessageStartGame})|({Variables.MessageEndGame})|({Variables.MessageDisconnectFromGame})|({Variables.MessageGameStartConfirm})|({Variables.MessageGameEndConfirmPNG}))");
+        public static Regex LogChatTeam { get; private set; } = new Regex($@" ?({Variables.MessageDeadRegex}|)(({Variables.MessageCTRegex}|{Variables.MessageTTRegex})(.*))");
         public static (Regex, LogFlags)[] RegexLog { get; private set; } =
         {
             (LogChat, LogFlags.Chat), 
